@@ -74,14 +74,10 @@ For mathematical notation in Markdown:
 - Use `$$...$$` for block math, e.g.:
 
     ```markdown
-    $$ 
-    \int_a^b f(x) \, dx 
+    $$
+    A = \int_1^4 \frac{x^2}{x} dx
     $$
     ```
-
-    $$
-    \int_a^b f(x) \, dx
-    $$
 
 - For more details, refer to [Cheat Sheet: Adding Math Notation to Markdown](https://www.upyesp.org/posts/makrdown-vscode-math-notation/).
 
