@@ -66,6 +66,21 @@ FFFFFFFFFFFF
 - The final file size will therefore be **3.25 PB** (Petabytes)! 😱
 - It is therefore almost **impossible** to generate all the keys at once.
 
+## Acknowledgements
+
+For mathematical notation in Markdown:
+
+- Use `$...$` for inline math, e.g., `$E=mc^2$`.
+- Use `$$...$$` for block math, e.g.:
+
+    ```markdown
+    $$ 
+    \int_a^b f(x) \, dx 
+    $$
+    ```
+
+- For more details, refer to [Cheat Sheet: Adding Math Notation to Markdown](https://www.upyesp.org/posts/makrdown-vscode-math-notation/).
+
 ## 📜 License
 
 - For more details, please refer to the [LICENSE](LICENSE) file.
