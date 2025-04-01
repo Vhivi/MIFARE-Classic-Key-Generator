@@ -79,6 +79,11 @@ For mathematical notation in Markdown:
     $$
     ```
 
+    $$
+    A = \int_1^4 \frac{x^2}{x} dx
+    $$
+
+
 - For more details, refer to [Cheat Sheet: Adding Math Notation to Markdown](https://www.upyesp.org/posts/makrdown-vscode-math-notation/).
 
 ## 📜 License
