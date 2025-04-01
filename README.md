@@ -79,6 +79,10 @@ For mathematical notation in Markdown:
     $$
     ```
 
+    $$
+    \int_a^b f(x) \, dx
+    $$
+
 - For more details, refer to [Cheat Sheet: Adding Math Notation to Markdown](https://www.upyesp.org/posts/makrdown-vscode-math-notation/).
 
 ## 📜 License
