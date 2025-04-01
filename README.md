@@ -71,18 +71,7 @@ FFFFFFFFFFFF
 For mathematical notation in Markdown:
 
 - Use `$...$` for inline math, e.g., `$E=mc^2$`.
-- Use `$$...$$` for block math, e.g.:
-
-    ```markdown
-    $$
-    A = \int_1^4 \frac{x^2}{x} dx
-    $$
-    ```
-
-    $$
-    A = \int_1^4 \frac{x^2}{x} dx
-    $$
-
+- This will render as $E=mc^2$.
 
 - For more details, refer to [Cheat Sheet: Adding Math Notation to Markdown](https://www.upyesp.org/posts/makrdown-vscode-math-notation/).
 
