@@ -66,7 +66,7 @@ FFFFFFFFFFFF
 - The final file size will therefore be **3.25 PB** (Petabytes)! 😱
 - It is therefore almost **impossible** to generate all the keys at once.
 
-## Acknowledgements
+## 🌈 Acknowledgements
 
 For mathematical notation in Markdown:
 
