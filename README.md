@@ -6,7 +6,7 @@ This project generates a file containing 12-character hexadecimal keys similar t
 
 ### ⚙️ Configuration
 
-The [config.ini] file defines the generation parameters:
+The [config.ini](config.ini) file defines the generation parameters:
 
 - `output_file`: the name of the output file (default is `keys.txt`)
 - `key_length`: the length of each key (12 characters)
@@ -15,7 +15,7 @@ The [config.ini] file defines the generation parameters:
 
 ### 🚀 Key Generation
 
-The [main.py] script reads the configuration, calculates the total number of keys to generate, and writes each key to the output file.
+The [main.py](main.py) script reads the configuration, calculates the total number of keys to generate, and writes each key to the output file.
 
 ## 📋 Prerequisites
 
@@ -24,7 +24,7 @@ The [main.py] script reads the configuration, calculates the total number of key
 
 ## 🛠️ Usage
 
-1. Configure the parameters in the [config.ini] file if necessary.
+1. Configure the parameters in the [config.ini](config.ini) file if necessary.
 
 2. Run the script using the following command in your terminal:
 
