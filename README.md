@@ -68,12 +68,7 @@ FFFFFFFFFFFF
 
 ## 🌈 Acknowledgements
 
-For mathematical notation in Markdown:
-
-- Use `$...$` for inline math, e.g., `$E=mc^2$`.
-- This will render as $E=mc^2$.
-
-- For more details, refer to [Cheat Sheet: Adding Math Notation to Markdown](https://www.upyesp.org/posts/makrdown-vscode-math-notation/).
+For mathematical notation in Markdown, refer to [Cheat Sheet: Adding Math Notation to Markdown](https://www.upyesp.org/posts/makrdown-vscode-math-notation/).
 
 ## 📜 License
 
