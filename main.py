@@ -57,7 +57,9 @@ def load_config(config_file="config.ini"):
         start = int(gen_config.get("start", "0x0"), 16)
         end = int(gen_config.get("end", "0xFFFFFFFFFFFF"), 16)
     except ValueError as e:
-        raise ValueError(f"Error while reading values in the configuration file: {e}")
+        raise ValueError(
+            f"Error while reading values in the configuration file: {e}"
+        ) from e
 
     return output_file, key_length, start, end
 
