@@ -2,6 +2,7 @@
 # ranging from `000000000000` to `FFFFFFFFFFFF`.
 
 import configparser
+import contextlib
 import os
 
 
@@ -94,10 +95,10 @@ def main():
     total_keys = end - start + 1
     print(f"Total number of keys to generate: {total_keys}")
 
-    try:
+    with contextlib.suppress(
+        FileNotFoundError
+    ):  # Suppress the error if the file does not exist
         os.remove(output_file)  # Delete the file if it already exists
-    except FileNotFoundError:
-        pass
 
     try:
         with open(output_file, "w") as file:
