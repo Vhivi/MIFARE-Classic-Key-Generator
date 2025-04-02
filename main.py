@@ -101,7 +101,8 @@ def main():
 
     try:
         with open(output_file, "w") as file:
-            # Loop to generate all 12-character keys from 0 to F
+            # Loop to generate all 12-character keys
+            # from 000000000000 to FFFFFFFFFFFF
             for i in range(start, end + 1):
                 # The expression {i:0{key_length}X} indicates that `i` should be displayed as
                 # an uppercase hexadecimal number (thanks to "X") and that the total width of
