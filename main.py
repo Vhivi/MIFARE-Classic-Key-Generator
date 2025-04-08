@@ -17,6 +17,7 @@ def load_config(config_file="config.ini"):
         tuple: A tuple containing the following:
             - output_file (str): The name of the output file for generated keys. Defaults to "keys.txt".
             - key_length (int): The length of the keys to be generated. Defaults to 12.
+            - num_keys (int): The number of keys to be generated. Defaults to 10000.
             - start (int): The starting value for key generation, parsed as a hexadecimal. Defaults to 0x0.
             - end (int): The ending value for key generation, parsed as a hexadecimal. Defaults to 0xFFFFFFFFFFFF.
 
@@ -54,6 +55,7 @@ def load_config(config_file="config.ini"):
     try:
         output_file = gen_config.get("output_file", "keys.txt")
         key_length = gen_config.getint("key_length", 12)
+        num_keys = gen_config.getint("num_keys", 10000)
         start = int(gen_config.get("start", "0x0"), 16)
         end = int(gen_config.get("end", "0xFFFFFFFFFFFF"), 16)
     except ValueError as e:
@@ -61,7 +63,7 @@ def load_config(config_file="config.ini"):
             f"Error while reading values in the configuration file: {e}"
         ) from e
 
-    return output_file, key_length, start, end
+    return output_file, key_length, num_keys, start, end
 
 
 def main():
@@ -72,9 +74,10 @@ def main():
     1. Loads configuration settings from a `config.ini` file, including:
        - The output file path where the keys will be saved.
        - The length of the keys to be generated.
-       - The start and end range for key generation.
+       - The start and end range for key generation
+       - The number of keys (`num_keys`) to generate.
     2. Calculates the total number of keys to be generated and displays it.
-    3. Iterates through the specified range to generate hexadecimal keys of the specified length.
+    3. Iterates through the specified range to generate the number of hexadecimal keys (`num_keys`) of the specified length.
     4. Writes each generated key to the specified output file.
     5. Displays a confirmation message once the keys are successfully saved.
 
@@ -88,14 +91,22 @@ def main():
     """
     # Load the configuration from the config.ini file
     try:
-        output_file, key_length, start, end = load_config()
+        output_file, key_length, num_keys, start, end = load_config()
     except Exception as e:
         print(f"Error while loading the configuration: {e}")
         return
 
     # Calculate the total number of keys to generate
     total_keys = end - start + 1
-    print(f"Total number of keys to generate: {total_keys}")
+    print(f"Total number of keys to generate if you generate all keys: {total_keys}")
+    
+    print(f"Number of keys to generate according to config.ini: {num_keys}")
+
+    # Validate that num_keys does not exceed the total number of keys available in the range
+    if num_keys > total_keys:
+        print(f"Warning: 'num_keys' ({num_keys}) exceeds the total number of keys available in the range ({total_keys}).")
+        print(f"'num_keys' will be adjusted to {total_keys} to match the available range.")
+        num_keys = total_keys
 
     with contextlib.suppress(
         FileNotFoundError
@@ -104,15 +115,13 @@ def main():
 
     try:
         with open(output_file, "w") as file:
-            # Loop to generate all 12-character keys
-            # from 000000000000 to FFFFFFFFFFFF
-            for i in range(start, end + 1):
-                # The expression {i:0{key_length}X} indicates that `i` should be displayed as
+            # Generate exactly "num_keys" keys starting from the specified 'start' value
+            for i in range(num_keys):
+                # The expression {(start + i):0{key_length}X} indicates that `(start + i)` should be displayed as
                 # an uppercase hexadecimal number (thanks to "X") and that the total width of
                 # the string should be equal to `key_length`, with zeros added at the beginning
                 # if necessary (the "0" before the width).
-                key = f"{i:0{key_length}X}"
-                # Write the key to the file with a newline character
+                key = f"{(start + i):0{key_length}X}"
                 file.write(key + "\n")
     except Exception as e:
         print(f"Error while writing keys to the file {output_file}: {e}")
