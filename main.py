@@ -115,20 +115,23 @@ def main():
 
     try:
         with open(output_file, "w") as file:
-            # Generate exactly "num_keys" keys starting from the specified 'start' value
-            for i in range(num_keys):
-                # The expression {(start + i):0{key_length}X} indicates that `(start + i)` should be displayed as
-                # an uppercase hexadecimal number (thanks to "X") and that the total width of
-                # the string should be equal to `key_length`, with zeros added at the beginning
-                # if necessary (the "0" before the width).
-                key = f"{(start + i):0{key_length}X}"
-                file.write(key + "\n")
+            create_key_entries(key_length, num_keys, start, file)
     except Exception as e:
         print(f"Error while writing keys to the file {output_file}: {e}")
         return
 
     # Display a confirmation message
     print(f"Keys generated and saved in {output_file}")
+
+def create_key_entries(key_length, num_keys, start, file):
+    # Generate exactly "num_keys" keys starting from the specified 'start' value
+    for i in range(num_keys):
+        # The expression {(start + i):0{key_length}X} indicates that `(start + i)` should be displayed as
+        # an uppercase hexadecimal number (thanks to "X") and that the total width of
+        # the string should be equal to `key_length`, with zeros added at the beginning
+        # if necessary (the "0" before the width).
+        key = f"{(start + i):0{key_length}X}"
+        file.write(key + "\n")
 
 
 if __name__ == "__main__":
